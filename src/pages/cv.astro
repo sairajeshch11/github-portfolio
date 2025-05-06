@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="w-full flex justify-end">
+  <a href="/Resume.pdf" 
+     download="Resume.pdf"
+     class="px-4 py-2 border border-black rounded hover:bg-black hover:text-white transition"
+  >
+     Download Resume
+  </a>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+           I’m Sai Rajesh Chittavarjula, a Computer Science graduate student at the University of South Dakota with over 2.5 years of experience as a Software Engineer. I’ve worked on building web applications, automating workflows using tools like Workato and Mulesoft, and developing internal tools that improved business efficiency. I enjoy solving coding problems, building projects with Python and web technologies, and learning new tech. Outside of coding, I’m into cinematography, reading blogs, and staying active in community and college events.
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="MS in Computer Science - Present"
+      subtitle="Jan 2024 to Dec 2025 at University of South Dakota, Vermillion, SD"
+    />
+    <TimeLineElement
+      title="Bachelor's in ECE"
+      subtitle="2016 to 2020 at Pydah College of Engineering and Technology, Visakhapatnam, AP, India"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Software Engineer"
+      subtitle="Apr 2022-Dec 2023 at Twenty20 Systems Pvt Ltd, Bangalore, India"
+    >
+      Driving integration projects using the Workato platform to integrate and automate operational tasks and data flow between CRMs, ERPs, Databases, and various other applications. Developing bespoke websites for clients using Python and integrating backend systems with Workato to ensure seamless data synchronization and operational efficiency.
+    </TimeLineElement>
+    <TimeLineElement
+      title="ITES Executive"
+      subtitle="Nov 2020-March 2022 at Imerit Technology Services Pvt. Ltd, Kolkata, India"
+    >
+      Marking and labeling images to help computer vision models interpret visual data effectively. Extracting intelligence from videos by annotating objects in each frame and helping models identify them. Natural Language Processing, Sentiment Analysis.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="#" target="_blank"> IBM Machine Learning Professional Certificate (Coursera)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Meta Front-End Developer Certificate (Coursera)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Google Data Analytics Professional Certificate (Coursera)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Data Analysis with Python – FreeCodeCamp</a>
+    </li>
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>Skill python</li>
+    <li>Skill Java(Basics)</li>
+    <li>Skill HTML</li>
+    <li>Skill CSS</li>
+    <li>Skill JavaScript</li>
+    <li>Skill Django </li>
+    <li>Skill Flask  Bucket</li>
+    <li>Skill Pandas, NumPy</li>
+    <li>Skill TensorFlow/Keras</li>
+    <li>Skill Data Cleaning & Preprocessing</li>
+    <li>Skill Supervised & Unsupervised ML Models</li>
+    <li>Skill RESTful APIs Integration</li>
+    <li>Skill Git & GitHub</li>
+    <li>Skill MySQL / SQLite</li>
+    <li>Skill Deployment: Netlify, Vercel</li>
+  </ul>
+</BaseLayout>

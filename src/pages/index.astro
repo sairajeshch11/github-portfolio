@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Sai Rajesh Chittavarjula</div>
+    <div class="text-3xl py-3 font-bold">Software Engineer</div>
+    <div class="py-2">
+      <text class="text-lg">
+       I’m Sai Rajesh Chittavarjula, a Computer Science graduate student at the University of South Dakota with over 2.5 years of experience as a Software Engineer. I’ve worked on building web applications, automating workflows using tools like Workato and Mulesoft, and developing internal tools that improved business efficiency. I enjoy solving coding problems, building projects with Python and web technologies, and learning new tech. Outside of coding, I’m into cinematography, reading blogs, and staying active in community and college events.
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://www.linkedin.com/in/sai-rajesh11/" target="_blank"> 
+      <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: currentColor;transform: ;msFilter:;"
+            ><circle cx="4.983" cy="5.009" r="2.188"></circle><path
+                d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"
+            ></path>
+        </svg>
+      Let's connect!</a>
+      
+      
+
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Stock Insights – AI-Powered Market Tracker"
+    img="/stocks.jpeg"
+    desc="Predictive analysis using LSTM to model price trends, Stock Insights is a stock market dashboard that serves as a platform for users to view all details of their desired company stocks, such as Apple, Google, Amazon, etc., and allows them to search, filter, compare, and view details of specific stocks."
+    url="#"
+    badge="Popular"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">What Am I Working On?</div>
+    <p class="text-base text-gray-700 mb-6">
+    Currently, I am focusing on AI-driven solutions in the healthcare domain, combining machine learning with responsive web development to build tools that make a real-world impact.
+  </p>
+  </div>
+  
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Projects</div>
+  </div>
+
+  <HorizontalCard
+    title="MediScan AI: Disease Detection from Medical Scans"
+    img="/medical.jpg"
+    desc="A web application that allows doctors to upload X-rays or MRI scans and instantly receive disease predictions using deep learning models (CNNs trained on public medical datasets). Built with FastAPI, TensorFlow, and a responsive React dashboard to display diagnosis probability and explainability maps using Grad-CAM."
+    url="#"
+    badge="Currently Working"
+  />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Research</div>
+  </div>
+
+  <HorizontalCard
+    title="Early Detection of Diabetic Retinopathy Using Lightweight Deep Learning Models"
+    img="/diabetic.png"
+    desc="Focused on creating a fast and mobile-optimized deep learning model for diagnosing diabetic retinopathy from retina scans. Emphasis on model compression and explainability techniques for real-world deployment. Under review at the IEEE Journal of Biomedical and Health Informatics."
+    url="#"
+  />
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+</BaseLayout>
